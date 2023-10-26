@@ -10,8 +10,6 @@
         <result column="create_time" property="createTime"></result>
         <result column="change_time" property="changeTime"></result>
     </resultMap>
-
-
     <insert id="insert" parameterType="cn.edu.nbpt.facenet.singin.entity.User">
         INSERT INTO user
         (phone,password,salt,face_id,avatar,username,
