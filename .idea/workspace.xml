@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="8d1ab3dd-f4ad-41d5-9108-01006b798725" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="ProjectId" id="2BTas3GEuWRr6wJqv49bAib5v4N" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/ASUS/Desktop/facenet",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "MavenSettings",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\IdeaProjects\facenet\src\main\resources\static" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="facenet" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="facenet" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FacenetApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="facenet" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="cn.edu.nbpt.facenet.FacenetApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8d1ab3dd-f4ad-41d5-9108-01006b798725" name="Changes" comment="" />
+      <created>1656932734770</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1656932734770</updated>
+      <workItem from="1656932738614" duration="6674000" />
+      <workItem from="1656994105722" duration="3376000" />
+      <workItem from="1657000185525" duration="294000" />
+      <workItem from="1657001543567" duration="1491000" />
+      <workItem from="1657022413198" duration="38000" />
+      <workItem from="1657025236304" duration="4801000" />
+      <workItem from="1657157002326" duration="1744000" />
+      <workItem from="1657161383994" duration="765000" />
+      <workItem from="1657174942268" duration="91000" />
+      <workItem from="1657194418537" duration="2886000" />
+      <workItem from="1657203331187" duration="246000" />
+      <workItem from="1658485037513" duration="612000" />
+      <workItem from="1659161960389" duration="12000" />
+      <workItem from="1659762458966" duration="19000" />
+      <workItem from="1659778781723" duration="206000" />
+      <workItem from="1660218554116" duration="1000" />
+      <workItem from="1662789169928" duration="471000" />
+      <workItem from="1662957260295" duration="11000" />
+      <workItem from="1663125253379" duration="1000" />
+      <workItem from="1671183064707" duration="11000" />
+      <workItem from="1671192926768" duration="1000" />
+      <workItem from="1682747710182" duration="5003000" />
+      <workItem from="1698295910224" duration="55000" />
+      <workItem from="1698295974512" duration="330000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

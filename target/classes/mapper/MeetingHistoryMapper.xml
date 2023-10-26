@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.nbpt.facenet.singin.mapper.MeetingHistoryMapper">
+
+    <resultMap id="resultMap" type="MeetingHistory">
+        <id column="m_h_id" property="mhId"></id>
+        <result column="m_id" property="mId"></result>
+        <result column="u_id" property="uId"></result>
+        <result column="reg_time" property="regTime"></result>
+        <result column="mod" property="mod"></result>
+        <collection column="meeting" property="meeting" ofType="Meeting">
+            <id column="m_id" property="mId"/>
+            <result column="title" property="title"></result>
+            <result column="create_time" property="createTime"></result>
+            <result column="start_time" property="startTime"></result>
+            <result column="end_time" property="endTime"></result>
+            <result column="state" property="state"></result>
+        </collection>
+        <collection property="user" ofType="User">
+            <id column="u_id" property="uId"></id>
+            <result column="username" property="username"></result>
+        </collection>
+    </resultMap>
+
+    <resultMap id="UserListResultMap" type="MeetingHistory">
+        <id column="m_h_id" property="mhId"></id>
+        <result column="m_id" property="mId"></result>
+        <result column="u_id" property="uId"></result>
+        <result column="reg_time" property="regTime"></result>
+        <result column="mod" property="mod"></result>
+        <collection property="user" ofType="User">
+            <id column="u_id" property="uId"></id>
+            <result column="username" property="username"></result>
+            <result column="sex" property="sex"></result>
+            <result column="avatar" property="avatar"></result>
+            <result column="age" property="age"></result>
+            <result column="address" property="address"></result>
+            <result column="audit" property="audit"></result>
+            <result column="admin" property="admin"></result>
+            <result column="phone" property="phone"></result>
+        </collection>
+    </resultMap>
+
+    <insert id="insert">
+        INSERT INTO meeting_history
+            (m_id, u_id, reg_time, `mod`)
+        values (#{mId}, #{uId}, #{regTime}, #{mod})
+    </insert>
+
+    <update id="updateRegTimemIduId">
+        UPDATE meeting_history
+        SET reg_time=#{regTime},
+            `mod`=#{mod}
+        WHERE m_id = #{mId}
+          AND u_id = #{uId}
+    </update>
+
+    <delete id="deleteBymIduId">
+        DELETE
+        FROM meeting_history
+        WHERE m_id = #{mId}
+          AND u_id = #{uId}
+    </delete>
+
+    <delete id="deleteBymId" parameterType="java.lang.Integer">
+        delete
+        from meeting_history
+        where m_id = #{mId}
+    </delete>
+
+    <select id="findAll" resultMap="resultMap">
+        select *
+        FROM meeting_history
+    </select>
+
+    <select id="findBymId" resultMap="resultMap">
+        select *
+        FROM meeting_history
+        WHERE m_id = #{mId}
+    </select>
+
+    <select id="findByuId" resultMap="resultMap">
+        select *
+        FROM meeting_history mh,
+             meeting m,
+             user u
+        WHERE mh.m_id = m.m_id
+          and mh.u_id = #{uId}
+          and m.create_user = u.u_id
+    </select>
+
+    <select id="findCount" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+        select count(*)
+        from meeting_history
+        where m_id = #{mid}
+    </select>
+
+    <select id="findNoSingInNum" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+        select count(*)
+        from meeting_history
+        where m_id = #{mid}
+          and reg_time is null
+    </select>
+
+    <select id="findFaceSingInNum" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+        select count(*)
+        from meeting_history
+        where m_id = #{mid}
+          and reg_time is not null
+          and `mod` = 1
+    </select>
+
+    <select id="findSingInNum" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+        select count(*)
+        from meeting_history
+        where m_id = #{mid}
+          and reg_time is not null
+          and `mod` = 0
+    </select>
+
+    <select id="findJoinUserList" parameterType="java.lang.Integer" resultMap="UserListResultMap">
+        select *
+        from `user` u,
+             meeting_history mh
+        where mh.u_id = u.u_id
+          and mh.m_id = #{mid}
+    </select>
+</mapper>

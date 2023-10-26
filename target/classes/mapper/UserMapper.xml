@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.nbpt.facenet.singin.mapper.UserMapper">
+
+    <resultMap id="resultMap" type="cn.edu.nbpt.facenet.singin.entity.User">
+        <id column="u_id" property="uId"></id>
+        <result column="face_id" property="faceId"></result>
+        <result column="create_time" property="createTime"></result>
+        <result column="change_time" property="changeTime"></result>
+    </resultMap>
+
+    <insert id="insert" parameterType="cn.edu.nbpt.facenet.singin.entity.User">
+        INSERT INTO user
+        (phone,password,salt,face_id,avatar,username,
+         address,create_time,change_time,age,sex,admin,audit)
+        values
+        (#{phone},#{password},#{salt},#{faceId},#{avatar},#{username},
+         #{address},#{createTime},#{changeTime},#{age},#{sex},#{admin},#{audit})
+    </insert>
+
+    <select id="findByPhone" resultMap="resultMap">
+        select * from user where phone=#{phone}
+    </select>
+
+    <delete id="deleteByPhone">
+        delete from user where phone=#{phone}
+    </delete>
+
+    <update id="updateByPhone">
+        UPDATE user
+        <set>
+            <if test="username != null">
+                username =#{username},
+            </if>
+            <if test="age != null">
+                age = #{age},
+            </if>
+            <if test="sex != null">
+                sex = #{sex},
+            </if>
+            <if test="address != null">
+                address = #{address},
+            </if>
+            <if test="avatar != null">
+                avatar = #{avatar},
+            </if>
+            <if test="password != null">
+                password = #{password},
+            </if>
+            <if test="salt!=null">
+                salt=#{salt},
+            </if>
+        </set>
+        WHERE phone=#{phone}
+    </update>
+
+    <select id="findUserList" resultMap="resultMap">
+        select u_id,avatar,age,address,username,phone,admin,audit from user order by u_id asc
+    </select>
+
+    <select id="findAll" resultMap="resultMap">
+        select * from user order by u_id asc
+    </select>
+    <select id="selectUId" resultType="java.lang.Integer">
+        select u_id from user where phone = #{phone}
+    </select>
+
+    <select id="checkFace" resultType="java.lang.String">
+        select username from user where u_id = #{uId}
+    </select>
+
+    <update id="activeUser" parameterType="java.lang.String">
+        update user set audit=1
+        where phone = #{phone}
+    </update>
+
+</mapper>

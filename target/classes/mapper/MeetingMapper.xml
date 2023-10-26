@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.nbpt.facenet.singin.mapper.MeetingMapper">
+
+    <resultMap id="resultMap" type="cn.edu.nbpt.facenet.singin.entity.Meeting">
+        <id column="m_id" property="mId"></id>
+        <result column="create_user" property="createUser"></result>
+        <result column="create_time" property="createTime"></result>
+        <result column="start_time" property="startTime"></result>
+        <result column="end_time" property="endTime"></result>
+    </resultMap>
+
+    <insert id="insert">
+        INSERT INTO meeting
+        (title,create_user,create_time,state,start_time,end_time)
+        VALUES
+        (#{title},#{createUser},#{createTime},#{state},#{startTime},#{endTime})
+    </insert>
+
+    <update id="updateBymId">
+        UPDATE meeting SET title=#{title},start_time=#{startTime},end_time=#{endTime} WHERE m_id=#{mId}
+    </update>
+
+    <update id="endMeeting">
+        update meeting set state = 2 where create_user = #{uid} and m_id = #{mid}
+    </update>
+
+    <delete id="deleteBymId">
+        DELETE FROM meeting WHERE m_id=#{mId}
+    </delete>
+
+    <select id="findbymId" resultMap="resultMap">
+        SELECT * FROM meeting WHERE m_id=#{mId}
+    </select>
+
+    <select id="findAll" resultMap="resultMap">
+        SELECT * FROM meeting
+    </select>
+
+    <select id="findSelfAll" parameterType="java.lang.Integer" resultMap="resultMap">
+        select *
+        from meeting
+        where create_user = #{uid}
+    </select>
+    
+    <update id="updateStateByStartTime" parameterType="java.lang.Long" >
+        UPDATE meeting SET state=1 WHERE state=0 AND #{now}>start_time
+    </update>
+</mapper>
